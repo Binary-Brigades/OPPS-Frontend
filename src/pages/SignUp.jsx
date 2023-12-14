@@ -13,11 +13,8 @@ function SignUp() {
   ];
   return (
     <div className="relative w-screen h-screen  gap-6 bg-gray-200 px-5 py-5 flex flex-col items-center justify-center">
-      <h1 className="text-left absolute top-2 left-[10%] md:left-[7%] text-[25px]  text-gray-500">
-        Sign Up Page
-      </h1>
-      <div className="rounded-tr-xl rounded-br-xl md:rounded-tr-none w-[90%] h-[90%] flex  items-center  shadow-xl shadow-slate-400 mt-5">
-        <div className="flex justify-center items-center w-full h-full flex-1 bg-[#fff] rounded-l-xl  rounded-tr-xl rounded-br-xl md:rounded-tr-none">
+      <div className="rounded-tr-xl rounded-br-xl md:rounded-tr-none w-[90%] h-[90%] flex  items-center  shadow-xl shadow-slate-400 mt-5 flex-row-reverse">
+        <div className="flex  justify-center items-center w-full h-full flex-1 bg-[#fff] rounded-l-xl  rounded-tr-xl rounded-br-xl md:rounded-tr-none">
           <form
             action=""
             className="z-[888] relative w-full md:w-[82%] h-full flex flex-col justify-between items-center p-6 md:p-14"
@@ -27,23 +24,27 @@ function SignUp() {
               src={mmustLogo}
               alt=""
             />
-            <h1 className="text-left absolute top-[26%] left-[5%] md:left-[12%] text-[22px] uppercase  text-gray-500 font-bold">
+            <h1 className="text-left absolute top-[26%] left-[5%] md:left-[12%] text-md uppercase  text-blue-500 font-bold">
               Sign Up
             </h1>
             <div
               className="flex justify-between gap-x-2 md:gap-2 items-center w-full 
         "
             >
-              <input
-                className="input w-full"
-                type="text"
-                placeholder="firstname"
-              ></input>
-              <input
-                className="input w-full"
-                type="text"
-                placeholder="lastname"
-              ></input>
+              <div className="divinput">
+                <input
+                  className="input w-full"
+                  type="text"
+                  placeholder="firstname"
+                ></input>
+              </div>
+              <div className="divinput">
+                <input
+                  className="input w-full"
+                  type="text"
+                  placeholder="lastname"
+                ></input>
+              </div>
             </div>
             <div className="flex flex-col w-full justify-center mt-[-30px]">
               <div className="divinput">
