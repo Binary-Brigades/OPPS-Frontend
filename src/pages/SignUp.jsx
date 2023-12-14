@@ -12,12 +12,12 @@ function SignUp() {
     "rgb(229 231 235)",
   ];
   return (
-    <div className="relative w-screen h-screen  gap-6 bg-gray-200 px-5 py-5 flex flex-col items-center justify-center">
-      <div className="rounded-tr-xl rounded-br-xl md:rounded-tr-none w-[90%] h-[90%] flex  items-center  shadow-xl shadow-slate-400 mt-5 flex-row-reverse">
-        <div className="flex  justify-center items-center w-full h-full flex-1 bg-[#fff] rounded-l-xl  rounded-tr-xl rounded-br-xl md:rounded-tr-none">
+    <div className="relative w-screen h-screen  gap-6 bg-gray-200 px-5 py-5 flex flex-col items-center justify-center rounded-xl">
+      <div className="rounded-tr-xl rounded-br-xl md:rounded-tr-none w-[99%] h-[600px] md:h-[95%] flex  items-center  shadow-xl shadow-slate-400 mt-5 flex-row-reverse">
+        <div className="flex  justify-center items-center w-full h-[100%] flex-1 bg-[#fff] rounded-xl   md:rounded-tl-none">
           <form
             action=""
-            className="z-[888] relative w-full md:w-[82%] h-full flex flex-col justify-between items-center p-6 md:p-14"
+            className="z-[888] relative w-full md:w-[82%] h-full flex flex-col justify-between items-center p-6 md:p-14 rounded-xl"
           >
             <img
               className="w-[100px] h-[100px] object-cover"
@@ -48,7 +48,7 @@ function SignUp() {
             </div>
             <div className="flex flex-col w-full justify-center mt-[-30px]">
               <div className="divinput">
-                <MdOutlineEmail className="w-5 h-5" />
+                <MdOutlineEmail className="w-5 h-5 text-black font-bold" />
                 <input
                   className="input"
                   type="text"
@@ -56,7 +56,7 @@ function SignUp() {
                 ></input>
               </div>
               <div className="divinput mt-6 mb-6">
-                <IoLockClosedOutline className="w-5 h-5" />
+                <IoLockClosedOutline className="w-5 h-5 font-bold text-black" />
                 <input
                   className="input"
                   type="password"
@@ -64,7 +64,7 @@ function SignUp() {
                 ></input>
               </div>
               <div className="divinput mt-2 mb-2">
-                <CiLock className="w-5 h-5" />
+                <CiLock className="w-5 h-5 font-bold text-black" />
                 <input
                   className="input"
                   type="password"
@@ -73,7 +73,10 @@ function SignUp() {
               </div>
               <p className="mt-[5px] md:mb-5">
                 Already have an account?{" "}
-                <Link className="text-blue-500 cursor-pointer ml-2" to="/login">
+                <Link
+                  className="font-bold text-blue-500 cursor-pointer ml-2"
+                  to="/login"
+                >
                   Login
                 </Link>
               </p>
@@ -85,9 +88,9 @@ function SignUp() {
             ></input>
           </form>
         </div>
-        <div className="hidden h-full md:block flex-1  rounded-tr-xl rounded-br-xl ">
+        <div className="hidden h-full md:block flex-1  rounded-tl-xl rounded-bl-xl ">
           <img
-            className="h-full object-cover object-center rounded-tr-xl rounded-br-xl"
+            className="h-full object-cover object-center rounded-tl-xl rounded-bl-xl"
             src={student}
             alt=""
           />
