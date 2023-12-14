@@ -1,5 +1,5 @@
-import React from 'react'
-import mmustLogo from '../assets/MMU.png'
+import React from "react";
+import mmustLogo from "../assets/MMU.png";
 
 function Login() {
   return (
@@ -8,7 +8,7 @@ function Login() {
         <img
           src="https://mmust.ac.ke/images/2021/04/09/sci.jpg"
           alt="login page"
-          className='flex-1'
+          className="flex-1"
         />
         <div className="grid items-center justify-center object-cover p-2 bg-red-300">
           <img
@@ -29,4 +29,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;
