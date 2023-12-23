@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 function Homepage() {
   return (
-    <div>Homepage</div>
-  )
+    <div>
+      <Navbar />
+      <Sidebar />
+    </div>
+  );
 }
 
-export default Homepage
+export default Homepage;
