@@ -9,8 +9,12 @@ import {
   IoSettings,
 } from "react-icons/io5";
 
-
-function Sidebar({ open}) {
+function Sidebar({ open, onItemClick }) {
+  const handleItemClick = (item) => {
+    if (onItemClick) {
+      onItemClick(item);
+    }
+  };
   return (
     <div
       className={`px-3 text-white
@@ -23,31 +27,23 @@ function Sidebar({ open}) {
         <span className="md:hidden  text-sm">Hi, User!</span>
       </p>
       <div>
-        <div className="flex items-center gap-3 py-2 px-2">
+        <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoGrid />
-          <p>
-            <a href="">Dashboard</a>
-          </p>
+          <p onClick={() => handleItemClick("Dashboard")}>Dashboard</p>
         </div>
-        <div className="flex items-center gap-3 py-2 px-2">
+        <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoPersonCircle />
-          <p>
-            <a href="">Profile</a>
-          </p>
+          <p onClick={() => handleItemClick("profile")}>Profile</p>
         </div>
-        <div className="flex items-center gap-3 py-2 px-2">
+        <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoFolder />
-          <p>
-            <a href="">Proposals</a>
-          </p>
+          <p onClick={() => handleItemClick("proposals")}>Proposals</p>
         </div>
       </div>
       <div className="mt-[40vh]">
-        <div className="flex items-center gap-3 py-2 px-2">
+        <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoSettings />
-          <p>
-            <a href="">Settings</a>
-          </p>
+          <p onClick={() => handleItemClick("settings")}>Settings</p>
         </div>
       </div>
     </div>
