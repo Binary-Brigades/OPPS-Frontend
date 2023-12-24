@@ -12,5 +12,23 @@
   .btn {
     @apply bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer;
   }
+  .smooth {
+    /* background: #000 !important; */
+    transition: all 0.5s ease-in-out;
+    z-index: 1000;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbary-button {
+    background: #000;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    height: 10px;
+    background: rgb(59 130 246);
+  }
+  ::-webkit-scrollbar-track {
+    background: #aaa;
+  }
 }
-
