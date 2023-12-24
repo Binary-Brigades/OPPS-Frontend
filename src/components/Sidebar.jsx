@@ -16,6 +16,7 @@ function Sidebar({ open, onItemClick }) {
     }
   };
   return (
+    
     <div
       className={`px-3 text-white
     py-10 h-[90vh] mt-[65px] fixed bg-blue-500 w-[200px] z-10 overflow-y-hidden ${
