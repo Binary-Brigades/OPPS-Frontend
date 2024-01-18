@@ -24,7 +24,7 @@ function SignUp() {
               src={mmustLogo}
               alt=""
             />
-            <h1 className="text-left absolute top-[26%] left-[5%] md:left-[12%] text-md uppercase  text-blue-500 font-bold">
+            <h1 className="text-left absolute top-[26%] left-[5%] md:left-[12%] text-md uppercase  text-blue-500 font-bold tracking-widest">
               Sign Up
             </h1>
             <div
