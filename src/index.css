@@ -7,10 +7,13 @@
     @apply w-full bg-gray-200 rounded-lg px-2 py-[7px] md:px-4 outline-none;
   }
   .divinput {
-    @apply border-[1.8px] border-black bg-gray-200 flex items-center justify-between w-full  rounded-lg outline-none px-3;
+    @apply border border-gray-500 bg-gray-200 flex items-center justify-between w-full  rounded-lg outline-none px-3;
   }
   .btn {
     @apply bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 cursor-pointer;
+  }
+  .icon {
+    @apply text-gray-600;
   }
   .smooth {
     /* background: #000 !important; */
