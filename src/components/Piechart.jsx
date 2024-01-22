@@ -25,7 +25,7 @@ function Piechart() {
             ))}
           </Pie>
           <Tooltip />
-          <Legend verticalAlign='middle' layout='vertical' height={8} align='right'/>
+          <Legend verticalAlign='middle' layout='vertical' iconType='star' height={8} align='right'/>
         </PieChart>
     
     )
