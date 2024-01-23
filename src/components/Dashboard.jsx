@@ -21,9 +21,9 @@ function Dashboard() {
           ))}
 
         </div>
-        {/* <div className="w-full" >
+        <div className="w-full" >
           <Piechart data={data} />
-        </div> */}
+        </div>
       </div>
     </div>
   );
