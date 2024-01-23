@@ -18,7 +18,7 @@ import Logo from "../assets/MMU.png";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { useSidebar } from "../../hooks/useHandleSideBar";
-function Profile() {
+function ForgetPassword() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   return (
     <div>
@@ -34,86 +34,43 @@ function Profile() {
         <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
           Profile setting
         </h5>
-        <div className="flex md:flex-row gap-4 md:gap-32 items-start justify-between mt-12 w-full flex-col md:max-w-[85%]">
+        <div className="flex md:flex-row gap-4 md:gap-32 items-start justify-between mt-12 w-full flex-col md:max-w-[75%]">
           <div className="w-full md:w-[200px] flex md:flex-col md:justify-start items-start md:gap-2 md:flex-2 flex-row justify-between">
             <div className="flex gap-1 items-center justify-center">
               <IoPencil />
               <p>Edit profile</p>
             </div>
-            <a
-              href="/forget_password"
-              className="flex gap-1 items-center justify-center cursor-pointer"
-            >
-              {" "}
-              <IoLockClosed />
-              <p>Change password</p>
-            </a>
           </div>
           <div className="flex w-full md:flex-[2]">
             <form
               action=""
-              className="relative w-full md:w-[82%] h-full flex flex-col justify-between items-center "
+              className="relative w-full md:w-[97%] h-full flex flex-col justify-between items-center "
             >
-              <div
-                className="flex justify-between gap-x-2 md:gap-2 items-center w-full md:mb-4 mb-4
-        "
-              >
-                <div className="divinput">
-                  <input
-                    className="input w-full"
-                    type="text"
-                    placeholder="firstname"
-                  ></input>
-                </div>
-                <div className="divinput">
-                  <input
-                    className="input w-full"
-                    type="text"
-                    placeholder="lastname"
-                  ></input>
-                </div>
-              </div>
               <div className="flex flex-col w-full justify-center gap-4">
+                <span className="font-bold">Current password</span>
                 <div className="divinput">
-                  <IoPerson className="w-5 h-5 text-black font-bold" />
                   <input
                     className="input"
-                    type="text"
-                    placeholder="user name"
+                    type="password"
+                    placeholder="current password..."
                   ></input>
                 </div>
+                <span className="font-bold">New password</span>
                 <div className="divinput">
-                  <MdPhone className="w-5 h-5 text-black font-bold" />
                   <input
                     className="input"
-                    type="tel"
-                    placeholder="phone number"
+                    type="password"
+                    placeholder="New password..."
                   ></input>
                 </div>
+                <span className="font-bold">Confirm password</span>
                 <div className="divinput">
-                  <MdNumbers className="w-5 h-5 text-black font-bold" />
                   <input
                     className="input"
-                    type="text"
-                    placeholder="Reg no/Employee no"
+                    type="password"
+                    placeholder="confirm password..."
                   ></input>
                 </div>
-                <div className="divinput ">
-                  <MdMail className="w-5 h-5 font-bold text-black" />
-                  <input
-                    className="input"
-                    type="email"
-                    placeholder="Email..."
-                  ></input>
-                </div>
-                {/* <div className="divinput mt-2 mb-2">
-                <MdLock className="w-5 h-5 font-bold text-black" />
-                <input
-                  className="input"
-                  type="password"
-                  placeholder="Password..."
-                ></input>
-              </div> */}
               </div>
               <input
                 className="btn w-full  rounded-lg uppercase mt-8"
@@ -128,4 +85,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default ForgetPassword;

@@ -9,6 +9,12 @@ import {
   IoSettings,
 } from "react-icons/io5";
 
+/**
+ * Render the sidebar component based on the open state.
+ *
+ * @param {Object} open - Indicates whether the sidebar is open
+ * @return {JSX.Element} The sidebar component
+ */
 function Sidebar({ open }) {
   return (
     <div
@@ -35,6 +41,7 @@ function Sidebar({ open }) {
           <a href="/proposals">Proposals</a>
         </div>
       </div>
+      
       <div className="mt-[40vh]">
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoSettings />
