@@ -18,7 +18,8 @@ import Logo from "../assets/MMU.png";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { useSidebar } from "../../hooks/useHandleSideBar";
-function Dashboard() {
+import Dashboard from "../components/Dashboard";
+function UsersDashboard() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   return (
     <div>
@@ -30,11 +31,12 @@ function Dashboard() {
       />
       <div className="p-8 h-full justify-start items-start w-full flex text-black md:pl-[250px]  flex-col">
         <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
-         Dashboard
+          Dashboard
         </h5>
+        <Dashboard />
       </div>
     </div>
   );
 }
 
-export default Dashboard;
+export default UsersDashboard;
