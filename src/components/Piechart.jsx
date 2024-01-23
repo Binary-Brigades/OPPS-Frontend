@@ -1,12 +1,8 @@
 import React from 'react'
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
-function Piechart() {
-    const data = [
-        { name: 'Pending', value: 400 },
-        { name: 'Approved', value: 300 },
-       
-      ];
+function Piechart(props) {
+    const data = props.data
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
       
   return (
@@ -25,7 +21,7 @@ function Piechart() {
             ))}
           </Pie>
           <Tooltip />
-          <Legend verticalAlign='middle' layout='vertical' iconType='star' height={8} align='right'/>
+          <Legend verticalAlign='bottom' layout='vertical' iconType='star' height={8} align='center'/>
         </PieChart>
     
     )
