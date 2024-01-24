@@ -3,6 +3,7 @@ import {
   IoClose,
   IoFolder,
   IoGrid,
+  IoLogOut,
   IoMenu,
   IoPerson,
   IoPersonCircle,
@@ -16,6 +17,13 @@ import {
  * @return {JSX.Element} The sidebar component
  */
 function Sidebar({ open }) {
+  const handleLogout = () => {
+
+
+
+    window.location.href = "/login";
+  };
+  }
   return (
     <div
       className={`px-3 text-white
@@ -28,7 +36,7 @@ function Sidebar({ open }) {
         <span className="md:hidden  text-sm">Hi, User!</span>
       </p>
       <div>
-        <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
+        <div className="flex items-center gap-3 py-6 px-2 cursor-pointer">
           <IoGrid />
           <a href="/dashboard">Dashboard</a>
         </div>
@@ -41,11 +49,12 @@ function Sidebar({ open }) {
           <a href="/proposals">Proposals</a>
         </div>
       </div>
-      
+
       <div className="mt-[40vh]">
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
-          <IoSettings />
-          <a href="/settings">Settings</a>
+          <button className="shadow-lg px-8 py-2 items-center flex gap-2 font-bold hover:gap-3">
+            Logout <IoLogOut />
+          </button>
         </div>
       </div>
     </div>

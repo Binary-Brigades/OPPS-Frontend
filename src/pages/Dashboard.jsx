@@ -24,11 +24,11 @@ import Login from "./Login";
 function UsersDashboard() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   const { getItem } = useAuthToken();
-  const item = getItem();
-  console.log(item);
+  const token = getItem();
+
   return (
     <>
-      {item ? (
+      {token !== null ? (
         <div>
           <Navbar handleSideBar={handleSideBar} open={open} />
           <Sidebar
