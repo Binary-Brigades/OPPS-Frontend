@@ -6,12 +6,9 @@ function Piechart(props) {
       const COLORS = ['#32CD32', '#F3C300', '#FFBB28', '#FF8042'];
       
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={200} height={200}>
           <Pie
             data={data}
-            
-            labelLine={true}
-            label="hello world"
             outerRadius={80}
             fill="#8884d8"
             dataKey="value"
