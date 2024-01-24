@@ -56,28 +56,31 @@ function Login() {
     <>
       <Toaster />
       <div className="relative w-screen h-screen  gap-6 bg-gray-200 px-5 py-5 flex flex-col items-center justify-center rounded-xl ">
-        <div className="rounded-tr-xl rounded-br-xl md:rounded-tr-none w-[99%] h-[600px] md:h-[95%] flex  items-center  shadow-xl shadow-slate-400 mt-5 flex-row-reverse">
-          <div className="flex  justify-center items-center w-full h-[100%] flex-1 bg-[#fff] rounded-xl   md:rounded-tl-none">
+        <div className="rounded-tr-xl rounded-br-xl  md:rounded-tr-none w-[99%] md:h-[95%] flex  items-center  shadow-xl  mt-5 flex-row-reverse">
+          <div className="flex flex-col  justify-center items-start  w-full h-[100%] flex-1 rounded-xl md:rounded-tl-none">
+            <div className=" pl-14">
+
+            <img
+              className="w-[100px] h-[100px] object-cover"
+              src={mmustLogo}
+              alt=""
+            />
+            </div>
             <form
               onSubmit={handleLogin}
               action=""
-              className="z-[888] relative w-full md:w-[72%] h-full flex flex-col justify-between items-center p-6 md:p-14 rounded-xl"
+              className="z-[888] relative w-full md:w-[72%] h-full flex  flex-col justify-center gap-10 items-start p-6 md:p-14 rounded-xl"
             >
-              <img
-                className="w-[100px] h-[100px] object-cover"
-                src={mmustLogo}
-                alt=""
-              />
-              <h1 className="text-left absolute top-[28%] left-[50px] md:left-[70px] text-md uppercase  text-blue-500 font-bold tracking-widest">
-                Login To OPPS
+              <h1 className="text-start w-full text-2xl absolute top-[26%]  md:left-[39px] text-md capitalize   font-bold tracking-widest">
+                Login To OPPS.
               </h1>
-              <p className="text-left  text-md ml-[50px] mb-[-60px] w-full ">
+              {/* <p className="text-left  text-md ml-[50px] mb-[-60px] w-full ">
                 Welcome back!
-              </p>
-              <p className="text-left  text-md md:ml-[-10px]  mb-[-40px] w-full ml-[50px]">
+              </p> */}
+              {/* <p className="text-left  text-md md:ml-[-10px]  mb-[-40px] w-full ml-[50px]">
                 {" "}
                 Please fill in your credentials...
-              </p>
+              </p> */}
               <div className="flex flex-col justify-center w-[90%] text-start">
                 <div className="divinput mb-[-1px]">
                   <MdOutlineEmail className="w-5 h-5 text-black font-bold" />
@@ -94,9 +97,10 @@ function Login() {
                   <input
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="input"
+                    className="input py-3"
                     type="password"
                     placeholder="password..."
+
                   ></input>
                 </div>
                 {/* <div className="mb-5">
@@ -124,7 +128,7 @@ function Login() {
                 </div>
               </div>
               <input
-                className="btn w-full mt-[-30px] mb-5 rounded-lg uppercase"
+                className="btn w-full mt-[-30px] mb-5 rounded-lg uppercase transition ease-linear duration-200"
                 type="submit"
                 value="Login"
               ></input>
