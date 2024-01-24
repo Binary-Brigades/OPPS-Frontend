@@ -1,6 +1,7 @@
 import React from "react";
 import Piechart from "./Piechart";
 import Card from "./Card";
+import ProposalList from "./ProposalList";
 
 function Dashboard() {
   const data = [
@@ -17,6 +18,10 @@ function Dashboard() {
           {data.map((item) => (
             <Card State={item.name} Value={item.value} key={item.name} />
           ))}
+        </div>
+        <div className="mt-4">
+          <p className="text-[#1763D6] font-bold py-3">Recent Proposals</p>
+          <ProposalList/>
         </div>
         <div className="items-left justify-left p-8 max-w-80%">
           <Piechart data={data} /> 
