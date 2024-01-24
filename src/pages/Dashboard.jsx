@@ -19,23 +19,34 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { useSidebar } from "../../hooks/useHandleSideBar";
 import Dashboard from "../components/Dashboard";
+import useAuthToken from "../../hooks/useAuth";
+import Login from "./Login";
 function UsersDashboard() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
+  const { getItem } = useAuthToken();
+  const token = getItem();
+
   return (
-    <div>
-      <Navbar handleSideBar={handleSideBar} open={open} />
-      <Sidebar
-        open={open}
-        handleSideBar={handleSideBar}
-        // onItemClick={handleSidebarItemClick}
-      />
-      <div className="p-8 h-full justify-start items-start w-full flex text-black md:pl-[250px]  flex-col">
-        <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
-          Dashboard
-        </h5>
-        <Dashboard />
-      </div>
-    </div>
+    <>
+      {token !== null ? (
+        <div>
+          <Navbar handleSideBar={handleSideBar} open={open} />
+          <Sidebar
+            open={open}
+            handleSideBar={handleSideBar}
+            // onItemClick={handleSidebarItemClick}
+          />
+          <div className="p-8 h-full justify-start items-start w-full flex text-black md:pl-[250px]  flex-col">
+            <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
+              Dashboard
+            </h5>
+            <Dashboard />
+          </div>
+        </div>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 }
 
