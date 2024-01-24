@@ -9,14 +9,14 @@ import {
   IoSettings,
 } from "react-icons/io5";
 
-function Sidebar({ open, onItemClick }) {
-  const handleItemClick = (item) => {
-    if (onItemClick) {
-      onItemClick(item);
-    }
-  };
+/**
+ * Render the sidebar component based on the open state.
+ *
+ * @param {Object} open - Indicates whether the sidebar is open
+ * @return {JSX.Element} The sidebar component
+ */
+function Sidebar({ open }) {
   return (
-    
     <div
       className={`px-3 text-white
     py-10 h-[120vh] mt-[65px] fixed bg-blue-500 w-[200px] z-10 overflow-y-hidden ${
@@ -30,21 +30,22 @@ function Sidebar({ open, onItemClick }) {
       <div>
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoGrid />
-          <p onClick={() => handleItemClick("Dashboard")}>Dashboard</p>
+          <a href="/dashboard">Dashboard</a>
         </div>
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoPersonCircle />
-          <p onClick={() => handleItemClick("profile")}>Profile</p>
+          <a href="/profile">Profile</a>
         </div>
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoFolder />
-          <p onClick={() => handleItemClick("proposals")}>Proposals</p>
+          <a href="/proposals">Proposals</a>
         </div>
       </div>
+      
       <div className="mt-[40vh]">
         <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
           <IoSettings />
-          <p onClick={() => handleItemClick("settings")}>Settings</p>
+          <a href="/settings">Settings</a>
         </div>
       </div>
     </div>
