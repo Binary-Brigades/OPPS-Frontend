@@ -74,8 +74,8 @@ function Login() {
               <p className="text-left  text-md ml-[50px] mb-[-60px] w-full ">
                 Welcome back!
               </p>
-              <p className="text-left  text-md md:ml-[-10px]  mb-[-40px] w-full ml-[50px]">
-                {" "}
+              <p className="text-left  text-md md:ml-[50px]  mb-[-40px] w-full ml-[50px] ">
+               
                 Please fill in your credentials...
               </p>
               <div className="flex flex-col justify-center w-[90%] text-start">
