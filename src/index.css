@@ -4,7 +4,7 @@
 
 @layer components {
   .input {
-    @apply w-full bg-gray-200 rounded-lg px-2 py-[7px] md:px-4 outline-none;
+    @apply w-full bg-gray-200 rounded-lg px-2 py-[5px] md:px-4 outline-none;
   }
   .divinput {
     @apply border border-gray-500 bg-gray-200 flex items-center justify-between w-full  rounded-lg outline-none px-3;
