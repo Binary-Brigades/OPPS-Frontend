@@ -78,7 +78,7 @@ function SignUp() {
             <form
               action=""
               onSubmit={handleSignup}
-              className="z-[888] relative w-full md:w-[82%] h-full flex flex-col justify-between items-center p-6 md:p-14 rounded-xl"
+              className="z-[888] relative w-full md:w-[72%] h-full flex flex-col justify-between items-center p-6 md:p-14 rounded-xl"
             >
               <img
                 className="w-[100px] h-[100px] object-cover"
@@ -86,7 +86,7 @@ function SignUp() {
                 alt=""
               />
               <h1 className="text-left absolute top-[26%] left-[5%] md:left-[12%] text-md uppercase  text-blue-500 font-bold tracking-widest">
-                Sign Up
+                Sign Up To OPPS
               </h1>
 
               <div className="divinput">
