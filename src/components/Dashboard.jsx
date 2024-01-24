@@ -11,7 +11,7 @@ function Dashboard() {
   const User = "Antony"
 
   return (
-    <div className="absolute top-[100px]  items-center justify-start w-full flex text-black md:pl-[200px] mt-12">
+    <div className="items-center justify-start w-full flex text-black md:pl-[200px] mt-12">
       <div className="flex w-full flex-col">
         <p className="font-bold">Welcome back {User}</p>
         <div className=" pr-8 flex  md:flex-row  justify-even gap-4 md:gap-12">

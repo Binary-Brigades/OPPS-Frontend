@@ -34,7 +34,7 @@ function Homepage() {
             onItemClick={handleSidebarItemClick}
           />
         </div>
-        <div className="px-10 py-5 h-full ml-10 relative ">
+        <div className="md:px-10 py-5 h-full md:ml-10 ml-4 relative ">
           <h5 className="text-blue-500 text-xl font-bold uppercase absolute top-[100px] md:left-[250px]">
             {selectedItem}
           </h5>

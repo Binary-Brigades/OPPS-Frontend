@@ -18,7 +18,7 @@ function Navbar({ handleSideBar, open }) {
         </h1>
       </div>
 
-      <div className="divinput flex-1 max-w-[60%]  md:max-w-[30%]">
+      <div className="divinput flex-1 max-w-[50%]  md:max-w-[30%]">
         <IoSearch className="w-5 h-5" />
         <input className="input" type="search" placeholder="search..."></input>
       </div>
