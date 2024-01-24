@@ -4,7 +4,7 @@ import Menubar from "../components/Menubar";
 import { IoNotifications, IoPerson, IoSearch } from "react-icons/io5";
 function Navbar({ handleSideBar, open }) {
   return (
-    <header className="flex items-center px-3 py-2 w-full h-[65px] shadow-lg justify-between gap-2 fixed z-[999] bg-white">
+    <header className="flex items-center px-3 py-2 w-screen h-[65px] shadow-lg justify-between gap-2 fixed z-[999] bg-white">
       <a href="/">
         <img
           src={Logo}
