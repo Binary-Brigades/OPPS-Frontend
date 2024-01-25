@@ -15,8 +15,8 @@ import {
 import { CiLock, CiPhone } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import Logo from "../assets/MMU.png";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../components/common/Navbar";
+import Sidebar from "../components/common/Sidebar";
 import { useSidebar } from "../../hooks/useHandleSideBar";
 import useAuthToken from "../../hooks/useAuth";
 import Login from "./Login";

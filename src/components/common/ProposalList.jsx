@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatDate from '../../hooks/FormatDate';
+import FormatDate from '../../../hooks/FormatDate';
 
 const ProposalList = () => {
   const proposals = [

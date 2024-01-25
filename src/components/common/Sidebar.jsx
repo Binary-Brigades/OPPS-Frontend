@@ -9,7 +9,7 @@ import {
   IoPersonCircle,
   IoSettings,
 } from "react-icons/io5";
-import useAuthToken from "../../hooks/useAuth";
+import useAuthToken from "../../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 
 /**

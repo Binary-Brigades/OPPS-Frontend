@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Logo from "../assets/MMU.png";
-import Menubar from "../components/Menubar";
+import Logo from "../../assets/MMU.png";
+import Menubar from "./Menubar";
 import { IoNotifications, IoPerson, IoSearch } from "react-icons/io5";
 function Navbar({ handleSideBar, open }) {
   return (

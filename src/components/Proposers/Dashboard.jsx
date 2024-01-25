@@ -1,7 +1,7 @@
 import React from "react";
-import Piechart from "./Piechart";
-import Card from "./Card";
-import ProposalList from "./ProposalList";
+import Piechart from "../common/Piechart";
+import Card from "../common/Card";
+import ProposalList from "../common/ProposalList";
 
 function Dashboard() {
   const data = [
