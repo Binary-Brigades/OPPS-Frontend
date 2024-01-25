@@ -22,20 +22,25 @@ import useAuthToken from "../../hooks/useAuth";
 import Login from "./Login";
 function Profile() {
   const { getItem } = useAuthToken();
-  const token = getItem();
+  const { token, getUserDetail } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   return (
     <>
       {token !== null ? (
         <div>
-          <Navbar handleSideBar={handleSideBar} open={open} />
+          <Navbar
+            handleSideBar={handleSideBar}
+            open={open}
+            getUserDetail={getUserDetail}
+          />
           <Sidebar
             open={open}
             handleSideBar={handleSideBar}
+            getUserDetail={getUserDetail}
             // onItemClick={handleSidebarItemClick}
           />
 
-          <div className="p-12 h-full justify-start items-start w-full flex text-black md:pl-[350px]  flex-col">
+          <div className="p-6 h-full justify-start items-start w-full flex text-black md:pl-[350px]  flex-col">
             {" "}
             <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
               Profile setting
@@ -85,7 +90,7 @@ function Profile() {
                       <input
                         className="input"
                         type="text"
-                        placeholder="user name"
+                        placeholder={getUserDetail.username}
                       ></input>
                     </div>
                     <div className="divinput">
@@ -109,7 +114,7 @@ function Profile() {
                       <input
                         className="input"
                         type="email"
-                        placeholder="Email..."
+                        placeholder={getUserDetail.email}
                       ></input>
                     </div>
                     {/* <div className="divinput mt-2 mb-2">
