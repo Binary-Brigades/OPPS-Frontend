@@ -68,14 +68,13 @@ function Login() {
                 src={mmustLogo}
                 alt=""
               />
-              <h1 className="text-left absolute top-[28%] left-[50px] md:left-[70px] text-md uppercase  text-blue-500 font-bold tracking-widest">
+              <h1 className=" text-left absolute top-[28%] left-[50px] md:left-[70px] text-md uppercase  text-blue-500 font-bold tracking-widest">
                 Login To OPPS
               </h1>
-              <p className="text-left  text-md ml-[50px] mb-[-60px] w-full ">
+              <p className="text-left  text-md ml-[50px] mb-[-70px] w-full md:mb-[-40px]">
                 Welcome back!
               </p>
-              <p className="text-left  text-md md:ml-[-10px]  mb-[-40px] w-full ml-[50px]">
-                {" "}
+              <p className="text-left  text-md md:ml-[50px]  mb-[-40px] w-full ml-[50px] ">
                 Please fill in your credentials...
               </p>
               <div className="flex flex-col justify-center w-[90%] text-start">

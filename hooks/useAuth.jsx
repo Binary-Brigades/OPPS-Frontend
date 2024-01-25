@@ -7,7 +7,7 @@ const useAuthToken = () => {
   // Use useEffect to persist the token in local storage
   useEffect(() => {
     // Retrieve the token from local storage
-    const storedToken = localStorage.getItem("authToken");
+    const storedToken = localStorage.getItem("accessToken");
 
     // If a token is found in local storage, set it in the state
     if (storedToken) {
