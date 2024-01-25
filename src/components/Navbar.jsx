@@ -32,7 +32,6 @@ function Navbar({ handleSideBar, open }) {
           </span>
         </p>
       </div>
-      
     </header>
   );
 }

@@ -28,7 +28,7 @@ function UsersDashboard() {
 
   return (
     <>
-      {token ? (
+      {token !== null ? (
         <div>
           <Navbar handleSideBar={handleSideBar} open={open} />
           <Sidebar
