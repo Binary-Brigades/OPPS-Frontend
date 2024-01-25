@@ -9,8 +9,10 @@ import {
   IoPersonCircle,
   IoSettings,
 } from "react-icons/io5";
+import {MdCreateNewFolder } from "react-icons/md"
 import useAuthToken from "../../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import DropButton from "../Proposers/DropButton";
 
 /**
  * Render the sidebar component based on the open state.
@@ -53,6 +55,12 @@ function Sidebar({ open }) {
           <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
             <IoFolder />
             <a href="/proposals">Proposals</a>
+          </div>
+          <div className="flex items-center gap-3 py-6 px-2 cursor-pointer">
+            <MdCreateNewFolder/>
+            <div>
+              <DropButton />
+            </div>
           </div>
         </div>
 
