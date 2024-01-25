@@ -20,7 +20,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        "https://oops-n5cn.onrender.com/api/v1/account/login/",
+        "https://oppsapi.onrender.com/api/v1/account/login/",
         {
           method: "POST",
           headers: {
@@ -37,7 +37,21 @@ function Login() {
           id: notification,
         });
         updateAuthToken(data.key);
-        window.location.href = "/";
+        console.log(data.key);
+
+        let key = data.key;
+        //  console.log("Token:", key);
+        const user = await fetch("https://oppsapi.onrender.com/api/v1/user/", {
+          method: "GET",
+          headers: {
+            Authentication: `Bearer 1197f9dd40b73cf1c4f55e137406ef76599d1b54`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        const userData = await user.json();
+        console.log(userData);
+        // window.location.href = "/";
       } else {
         toast.error(data.message, {
           id: notification,
