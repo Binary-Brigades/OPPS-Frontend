@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../components/common/Navbar";
+import Sidebar from "../components/common/Sidebar";
 import { useSidebar } from "../../hooks/useHandleSideBar";
-import ProposalCard from "../components/ProposalCard";
+import ProposalCard from "../components/common/ProposalCard";
 
 function Proposals() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
