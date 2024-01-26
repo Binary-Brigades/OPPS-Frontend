@@ -1,20 +1,5 @@
-import React, { useState } from "react";
-import {
-  IoLockClosed,
-  IoPencil,
-  IoLockClosedOutline,
-  IoPerson,
-} from "react-icons/io5";
-import {
-  MdLock,
-  MdMail,
-  MdNumbers,
-  MdOutlineEmail,
-  MdPhone,
-} from "react-icons/md";
-import { CiLock, CiPhone } from "react-icons/ci";
-import { Link } from "react-router-dom";
-import Logo from "../assets/MMU.png";
+import React, { useEffect, useState } from "react";
+
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
 
@@ -27,16 +12,16 @@ import Coordinator from "../components/users/Coordinator";
 import Proposer from "../components/users/Proposer";
 import { useSidebar } from "../../hooks/useHandleSideBar";
 function UsersDashboard() {
-  const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
+  const [selectedItem, setSelectedItem] = useState();
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();
-  const [selectedItem, setSelectedItem] = useState(getUserDetail.role);
-  const routeConfig = {
-    admin: Admin,
-    student: Proposer,
-    coordinator: Coordinator,
-    reviewer: Reviewer,
-  };
+  useEffect(() => {
+    if (!token) {
+      window.location.href = "/login";
+    }
+    setSelectedItem(getUserDetail?.role);
+  }, []);
+  const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
 
   return (
     <>
@@ -54,11 +39,13 @@ function UsersDashboard() {
             // onItemClick={handleSidebarItemClick}
           />
           <div className="p-8 h-full justify-start items-start w-full flex text-black md:pl-[250px]  flex-col">
-            <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
+            <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20 lg:pl-[100px]">
               Dashboard
             </h5>
-            {React.createElement(routeConfig[selectedItem])}
-    
+            {selectedItem === "admin" && <Admin />}
+            {selectedItem === "student" && <Proposer />}
+            {selectedItem === "coordinator" && <Coordinator />}
+            {selectedItem === "reviewer" && <Reviewer />}
           </div>
         </div>
       ) : (

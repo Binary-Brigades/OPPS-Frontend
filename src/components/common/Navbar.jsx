@@ -28,7 +28,7 @@ function Navbar({ handleSideBar, open, getUserDetail }) {
         <p className="md:flex items-center gap-2 px-2 hidden">
           <IoPerson />
           <span className="hidden md:inline-block text-sm text-blue-500">
-            Hi, {getUserDetail.username}!
+            Hi, {getUserDetail?.username}!
           </span>
         </p>
       </div>

@@ -1,14 +1,16 @@
-import React from 'react'
+import React from "react";
 function Card(props) {
-    const Value = props.Value
-    
-    const State = props.State
+  const Value = props.Value;
+
+  const State = props.State;
   return (
-    <div className='bg-[#F5F5F5] hover:scale-110 hover:cursor-pointer ease-in-out transition-all durration-500 rounded-md w-fit p-4 text-center max-w-[200px] md:max-w-[300px] my-5'>
-        <p className='text-[#1763D6] font-semibold'>{State} Proposals</p>
-        <p className='font-bold flex text-sm ml-[50%] mt-4'>{Value} <span className='mx-auto'> {">"}</span></p>
+    <div className="bg-gray-200 border md:hover:scale-105 hover:cursor-pointer ease-in-out transition-all durration-500 rounded-md  p-4 h-[100px] text-center hover:scale-[101%]">
+      <p className="text-[#1763D6] font-semibold text-sm">{State} Proposals</p>
+      <p className="font-bold flex text-sm ml-[50%] mt-4">
+        {Value} <span className="mx-auto"> {">"}</span>
+      </p>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

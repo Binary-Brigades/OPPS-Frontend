@@ -9,6 +9,7 @@ import Settings from "./pages/Settings";
 import ForgetPassword from "./pages/ForgetPassword";
 import CreateSonasProposal from "./pages/CreateSonasProposal";
 import CreateSassProposal from "./pages/CreateSassProposal";
+import CreateQuetions from "./pages/CreateQuetions";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/createsassproposal" element={<CreateSassProposal />} />
         <Route path="/createsonasproposal" element={<CreateSonasProposal />} />
+        <Route path="/createquestions" element={<CreateQuetions />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes>
     </Router>
