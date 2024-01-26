@@ -5,19 +5,14 @@ const useAuthToken = () => {
   const [authToken, setAuthToken] = useState(null);
 
   // Use useEffect to persist the token in local storage
-  useEffect(() => {
-    // Retrieve the token from local storage
-    const storedToken = localStorage.getItem("accessToken");
 
-    // If a token is found in local storage, set it in the state
-    if (storedToken) {
-      setAuthToken(storedToken);
-    }
-  }, []);
   const getItem = () => {
     const token = localStorage.getItem("authToken");
-    return token;
+    const getDetail = localStorage.getItem("userDetails");
+    const getUserDetail = JSON.parse(getDetail);
+    return { token, getUserDetail };
   };
+
   // Function to update the authentication token
   const updateAuthToken = (newToken) => {
     // Update the token in the state
@@ -27,7 +22,6 @@ const useAuthToken = () => {
     localStorage.setItem("authToken", newToken);
   };
 
-  // Function to clear the authentication token
   const clearAuthToken = () => {
     // Clear the token from the state
     setAuthToken(null);
@@ -37,7 +31,7 @@ const useAuthToken = () => {
   };
 
   // Return the token and functions to update and clear it
-  return { authToken, updateAuthToken, clearAuthToken, getItem };
+  return { updateAuthToken, clearAuthToken, getItem };
 };
 
 export default useAuthToken;
