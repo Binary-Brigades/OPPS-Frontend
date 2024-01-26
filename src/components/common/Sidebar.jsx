@@ -58,12 +58,12 @@ function Sidebar({ open, getUserDetail }) {
             <IoFolder />
             <a href="/proposals">Proposals</a>
           </div>
-          <div className="flex items-center gap-3 py-6 px-2 cursor-pointer">
-            <MdCreateNewFolder />
-            <div>
+
+          {getUserDetail.role == "student" && (
+            <div className="flex items-center gap-2">
               <DropButton />
             </div>
-          </div>
+          )}
         </div>
 
         <div className="mt-[30%]">

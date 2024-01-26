@@ -5,7 +5,7 @@ import Sidebar from "../components/common/Sidebar";
 import ProposalCard from "../components/common/ProposalCard";
 import useAuthToken from "../../hooks/useAuth";
 import { useSidebar } from "../../hooks/useHandleSideBar";
-function Proposals() {
+function CreateSassProposal() {
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
@@ -25,7 +25,7 @@ function Proposals() {
           />
           <div className="p-12 h-full justify-start items-start w-full flex text-black md:pl-[350px]  flex-col  md:px-[200px]  ">
             <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
-              Create Your Proposal
+              Create Your Sass Proposal
             </h5>
           </div>
         </div>
@@ -36,4 +36,4 @@ function Proposals() {
   );
 }
 
-export default Proposals;
+export default CreateSassProposal;

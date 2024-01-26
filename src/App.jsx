@@ -5,9 +5,10 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Proposals from "./pages/Proposals";
-import CreateProposal from "./pages/CreateProposal"
 import Settings from "./pages/Settings";
 import ForgetPassword from "./pages/ForgetPassword";
+import CreateSonasProposal from "./pages/CreateSonasProposal";
+import CreateSassProposal from "./pages/CreateSassProposal";
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/proposals" element={<Proposals />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/createProposal" element={<CreateProposal/>} />
-        <Route path="/forget_password" element={<ForgetPassword />} />
+        <Route path="/createsassproposal" element={<CreateSassProposal />} />
+        <Route path="/createsonasproposal" element={<CreateSonasProposal />} />
+        <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes>
     </Router>
   );
