@@ -17,9 +17,10 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/MMU.png";
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
-import { useSidebar } from "../../hooks/useHandleSideBar";
+// import useSidebar from "../../hooks/useHandleSideBar";
 import useAuthToken from "../../hooks/useAuth";
 import Login from "./Login";
+import { useSidebar } from "../../hooks/useHandleSideBar";
 function Profile() {
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();

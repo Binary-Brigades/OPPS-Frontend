@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
-import { useSidebar } from "../../hooks/useHandleSideBar";
+
 import ProposalCard from "../components/common/ProposalCard";
 import useAuthToken from "../../hooks/useAuth";
+import { useSidebar } from "../../hooks/useHandleSideBar";
 function Proposals() {
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();

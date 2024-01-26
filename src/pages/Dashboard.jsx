@@ -17,14 +17,15 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/MMU.png";
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
-import { useSidebar } from "../../hooks/useHandleSideBar";
-import Dashboard from "../components/Proposers/Dashboard";
+
+// import Dashboard from "../components/Proposers/Dashboard";
 import useAuthToken from "../../hooks/useAuth";
 import Login from "./Login";
 import Admin from "../components/users/Admin";
 import Reviewer from "../components/users/Reviewer";
 import Coordinator from "../components/users/Coordinator";
 import Proposer from "../components/users/Proposer";
+import { useSidebar } from "../../hooks/useHandleSideBar";
 function UsersDashboard() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   const { getItem } = useAuthToken();
@@ -32,7 +33,7 @@ function UsersDashboard() {
   const [selectedItem, setSelectedItem] = useState(getUserDetail.role);
   const routeConfig = {
     admin: Admin,
-    proposer: Proposer,
+    student: Proposer,
     coordinator: Coordinator,
     reviewer: Reviewer,
   };
@@ -57,7 +58,7 @@ function UsersDashboard() {
               Dashboard
             </h5>
             {React.createElement(routeConfig[selectedItem])}
-            {/* <Dashboard getUserDetail={getUserDetail} /> */}
+    
           </div>
         </div>
       ) : (
