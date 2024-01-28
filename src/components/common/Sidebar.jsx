@@ -9,7 +9,7 @@ import {
   IoPersonCircle,
   IoSettings,
 } from "react-icons/io5";
-import { MdCreateNewFolder } from "react-icons/md";
+import { MdCreateNewFolder, MdQuestionAnswer } from "react-icons/md";
 import useAuthToken from "../../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import DropButton from "../Proposers/DropButton";
@@ -42,7 +42,7 @@ function Sidebar({ open, getUserDetail }) {
         <p className="mb-5 shadow-lg py-2  flex md:hidden items-center gap-2 px-2">
           <IoPerson className="w-8 h-8" />
           <span className="md:hidden  text-sm">
-            Hi, {getUserDetail.username}!
+            Hi, {getUserDetail?.username}!
           </span>
         </p>
         <div>
@@ -59,9 +59,15 @@ function Sidebar({ open, getUserDetail }) {
             <a href="/proposals">Proposals</a>
           </div>
 
-          {getUserDetail.role == "student" && (
+          {getUserDetail?.role == "student" && (
             <div className="flex items-center gap-2">
               <DropButton />
+            </div>
+          )}
+          {getUserDetail?.role == "coordinator" && (
+            <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
+              <MdQuestionAnswer />
+              <a href="/createquestions">Create questions</a>
             </div>
           )}
         </div>
