@@ -9,8 +9,10 @@ import {
   IoPersonCircle,
   IoSettings,
 } from "react-icons/io5";
-import useAuthToken from "../../hooks/useAuth";
+import { MdCreateNewFolder, MdQuestionAnswer } from "react-icons/md";
+import useAuthToken from "../../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
+import DropButton from "../Proposers/DropButton";
 
 /**
  * Render the sidebar component based on the open state.
@@ -18,7 +20,7 @@ import toast, { Toaster } from "react-hot-toast";
  * @param {Object} open - Indicates whether the sidebar is open
  * @return {JSX.Element} The sidebar component
  */
-function Sidebar({ open }) {
+function Sidebar({ open, getUserDetail }) {
   const { clearAuthToken } = useAuthToken();
   const handleLogout = () => {
     const notification = toast.loading("loging out...");
@@ -26,7 +28,7 @@ function Sidebar({ open }) {
     toast.success("Logout successful", {
       id: notification,
     });
-    window.location.href = "/";
+    window.location.href = "/login";
   };
   return (
     <>
@@ -39,7 +41,9 @@ function Sidebar({ open }) {
       >
         <p className="mb-5 shadow-lg py-2  flex md:hidden items-center gap-2 px-2">
           <IoPerson className="w-8 h-8" />
-          <span className="md:hidden  text-sm">Hi, User!</span>
+          <span className="md:hidden  text-sm">
+            Hi, {getUserDetail?.username}!
+          </span>
         </p>
         <div>
           <div className="flex items-center gap-3 py-6 px-2 cursor-pointer">
@@ -54,9 +58,21 @@ function Sidebar({ open }) {
             <IoFolder />
             <a href="/proposals">Proposals</a>
           </div>
+
+          {getUserDetail?.role == "student" && (
+            <div className="flex items-center gap-2">
+              <DropButton />
+            </div>
+          )}
+          {getUserDetail?.role == "coordinator" && (
+            <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
+              <MdQuestionAnswer />
+              <a href="/createquestions">Create questions</a>
+            </div>
+          )}
         </div>
 
-        <div className="mt-[40vh]">
+        <div className="mt-[30%]">
           <div className="flex items-center gap-3 py-2 px-2 cursor-pointer">
             <button
               className="shadow-lg px-8 py-2 items-center flex gap-2 font-bold hover:gap-3"
