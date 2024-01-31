@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Piechart from "../common/Piechart";
 import Card from "../common/Card";
 import ProposalList from "../common/ProposalList";
 import useAuthToken from "../../../hooks/useAuth";
 
 function Dashboard() {
+  
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();
   const data = [
@@ -16,11 +17,10 @@ function Dashboard() {
   return (
     <div className="pt-12 h-full justify-start items-start w-full flex text-black flex-col lg:pl-[100px]">
       <div className="flex w-full md:w-[80%] flex-col">
-        <p className="font-bold">
+        <p className="font-bold mb-5">
           Welcome back{" "}
-          <span className="font-bold text-[20px]">
             {getUserDetail.username}
-          </span>
+          
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3   items-center gap-1 md:gap-2 ">
           {data.map((item) => (
