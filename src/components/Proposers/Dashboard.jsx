@@ -31,7 +31,9 @@ function Dashboard() {
           <p className="text-[#1763D6] font-bold py-3">Recent Proposals</p>
           <ProposalList />
         </div>
-       
+       <div>
+        {/* <Piechart /> */}
+       </div>
       </div>
     </div>
   );
