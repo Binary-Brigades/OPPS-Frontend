@@ -7,7 +7,7 @@ function DropButton() {
   const [Clicked, setClicked] = useState(false);
   const handleClicked = () => setClicked(!Clicked);
   const Token = getItem();
-  console.log(Token);
+  
   return (
     <div
       className="relative transition-all duration-300 ease-in-out flex gap-3 py-2 px-2  cursor-pointer 0"
