@@ -29,7 +29,7 @@ function Coordinator() {
         </div>
         <div className="mt-4">
           <p className="text-[#1763D6] font-bold py-3">Recent Proposals</p>
-          <ProposalList />
+          {/* <ProposalList /> */}
         </div>
         <div className="items-left justify-left p-8 max-w-80%">
           <Piechart data={data} />
