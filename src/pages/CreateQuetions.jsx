@@ -29,7 +29,12 @@ function CreateQuestions() {
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
 
   const [question, setQuestion] = useState("");
-  const [questionsList, setQuestionsList] = useState([]);
+  const [questionsList, setQuestionsList] = useState([{
+    question: "",
+    marks: 0,
+    max_words: 0
+    
+  }]);
   const [template, setTemplate] = useState("");
   const [marks, setMarks] = useState(0);
   const [max_words, setMax_words] = useState(0);
