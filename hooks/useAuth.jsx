@@ -10,9 +10,15 @@ const useAuthToken = () => {
     const token = localStorage.getItem("authToken");
     const getDetail = localStorage.getItem("userDetails");
     const getUserDetail = JSON.parse(getDetail);
-    return { token, getUserDetail };
+    const getQuestions = localStorage.getItem("savedQuestions");
+    const getSavedQuestions = JSON.parse(getQuestions);
+    const getTemplateId = localStorage.getItem("templateId");
+    return { token, getUserDetail, getSavedQuestions, getTemplateId };
   };
-
+  const removeItem = () => {
+    localStorage.removeItem("savedQuestions");
+    localStorage.removeItem("templateId");
+  };
   // Function to update the authentication token
   const updateAuthToken = (newToken) => {
     // Update the token in the state
@@ -31,7 +37,7 @@ const useAuthToken = () => {
   };
 
   // Return the token and functions to update and clear it
-  return { updateAuthToken, clearAuthToken, getItem };
+  return { updateAuthToken, clearAuthToken, getItem, removeItem };
 };
 
 export default useAuthToken;
