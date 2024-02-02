@@ -238,7 +238,7 @@ function CreateQuestions() {
                         key={index}
                         className="leading-8 text-left flex gap-4"
                       >
-                        <span className="font-bold">{index}</span>{" "}
+                        <span className="font-bold">{index}</span>
                         <span>{q.question}</span>
                         <span>{q.marks}</span>
                         <span>{q.max_words}</span>
