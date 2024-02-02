@@ -7,9 +7,9 @@ import Dashboard from "./pages/Dashboard";
 import Proposals from "./pages/Proposals";
 import Settings from "./pages/Settings";
 import ForgetPassword from "./pages/ForgetPassword";
-import CreateSonasProposal from "./pages/CreateSonasProposal";
-import CreateSassProposal from "./pages/CreateSassProposal";
+import ProposalPage from './pages/ProposalPage'
 import CreateQuetions from "./pages/CreateQuetions";
+import ProposalQuestions from "./pages/ProposalQuestions";
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/proposals" element={<Proposals />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/createsassproposal" element={<CreateSassProposal />} />
-        <Route path="/createsonasproposal" element={<CreateSonasProposal />} />
+        <Route path="/createproposal/:proposalName" element={<ProposalPage />} />
+        <Route path="/createproposal/:proposalName/:templateId" element={<ProposalQuestions />} />       
         <Route path="/createquestions" element={<CreateQuetions />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes>
