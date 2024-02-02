@@ -41,8 +41,8 @@ function Sidebar({ open, getUserDetail }) {
       >
         <p className="mb-5 shadow-lg py-2  flex md:hidden items-center gap-2 px-2">
           <IoPerson className="w-8 h-8" />
-          <span className="md:hidden  text-sm">
-            Hi, {getUserDetail?.username}!
+          <span className="md:hidden  text-sm capitalize">
+            {getUserDetail?.role}
           </span>
         </p>
         <div>

@@ -27,8 +27,8 @@ function Navbar({ handleSideBar, open, getUserDetail }) {
         <IoNotifications />
         <p className="md:flex items-center gap-2 px-2 hidden">
           <IoPerson />
-          <span className="hidden md:inline-block text-sm text-blue-500">
-            Hi, {getUserDetail?.username}!
+          <span className="hidden md:inline-block text-sm text-blue-500 capitalize">
+            {getUserDetail?.role}
           </span>
         </p>
       </div>

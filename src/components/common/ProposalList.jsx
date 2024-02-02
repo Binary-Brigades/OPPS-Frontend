@@ -1,9 +1,11 @@
-import React from 'react';
-import FormatDate from '../../../hooks/FormatDate';
-import useFetch from '../../../hooks/useFetch';
+import React from "react";
+import FormatDate from "../../../hooks/FormatDate";
+import useFetch from "../../../hooks/useFetch";
 
 const ProposalList = () => {
-  const proposals = useFetch('https://oops-n5cn.onrender.com/api/v1/proposal/my_proposal');
+  const proposals = useFetch(
+    "https://oppsapi.onrender.com/api/v1/proposal/my_proposal"
+  );
   console.log(proposals.data);
 
   return (

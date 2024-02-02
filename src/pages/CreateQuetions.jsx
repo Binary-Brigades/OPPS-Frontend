@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import {
   IoLockClosed,
   IoPencil,
@@ -20,6 +21,7 @@ import Sidebar from "../components/common/Sidebar";
 import useAuthToken from "../../hooks/useAuth";
 import Login from "./Login";
 import { useSidebar } from "../../hooks/useHandleSideBar";
+import { TiPlus } from "react-icons/ti";
 
 function CreateQuestions() {
   const { getItem } = useAuthToken();
@@ -31,6 +33,7 @@ function CreateQuestions() {
   const [template, setTemplate] = useState("");
   const [marks, setMarks] = useState(0);
   const [max_words, setMax_words] = useState(0);
+  const [data, setData] = useState();
 
   useEffect(() => {
     // Retrieve saved questions from local storage on component mount
@@ -43,24 +46,31 @@ function CreateQuestions() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(token);
     try {
-      const resp = await fetch(
-        "https://oppsapi.onrender.com/api/v1/proposal/template/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${token}`,
-          },
-          body: JSON.stringify({
-            title: template,
-            category: getUserDetail?.category,
-          }),
-        }
-      );
-      const data = await resp.json();
-      console.log(data);
+      if (template == "") {
+        toast.error("Please enter a template name");
+        return;
+      } else {
+        const resp = await fetch(
+          "https://oppsapi.onrender.com/api/v1/proposal/template/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${token}`,
+            },
+            body: JSON.stringify({
+              title: template,
+              category: getUserDetail?.category,
+            }),
+          }
+        );
+        const respData = await resp.json();
+        toast.success("Template created successfully");
+        setData(respData);
+
+        console.log(respData);
+      }
       const question = await fetch(
         `https://oppsapi.onrender.com/api/v1/proposal/create_questions/${data.id}/`,
         {
@@ -90,7 +100,10 @@ function CreateQuestions() {
       console.error(error);
     }
   };
+  // const handleAddTemplate = async (e) => {
+  //   e.preventDefault();
 
+  // };
   const handleAddQuestion = (e) => {
     e.preventDefault();
     if (question.trim() !== "") {
@@ -105,9 +118,10 @@ function CreateQuestions() {
       setQuestion("");
     }
   };
-
+  console.log(question);
   return (
     <>
+      <Toaster />
       {token !== null ? (
         <div>
           <Navbar
@@ -133,19 +147,27 @@ function CreateQuestions() {
                 htmlFor="category"
                 className="text-left font-semibold w-full"
               >
-                Template Title
+                Create Template
               </label>
-              <input
-                type="text"
-                id="category"
-                required
-                value={template}
-                placeholder="Question template title..."
-                onChange={(e) => {
-                  setTemplate(e.target.value);
-                }}
-                className="mt-4 border border-gray-500 bg-gray-200 outline-none px-6 py-4 h-[40px] rounded-lg w-full"
-              />
+              <div className="flex mt-2 w-full items-center justify-center gap-1 ">
+                <input
+                  type="text"
+                  id="category"
+                  required
+                  value={template}
+                  placeholder="Add Question template title..."
+                  onChange={(e) => {
+                    setTemplate(e.target.value);
+                  }}
+                  className=" border border-gray-500 bg-gray-200 outline-none px-6 py-4 h-[40px] rounded-lg w-full"
+                />
+                {/* <div
+                  className="flex border border-gray-500 bg-gray-200 outline-none rounded-full  w-[40px] h-[40px] text-center items-center justify-center p-2 hover:cursor-pointer"
+                  // onClick={handleAddTemplate}
+                >
+                  <TiPlus className="w-8 h-8 text-blue-500 text-center" />
+                </div> */}
+              </div>
             </div>
             <div className="flex flex-col mt-4 w-full md:gap-4  ">
               <div className="flex flex-col">
