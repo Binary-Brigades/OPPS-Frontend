@@ -154,7 +154,7 @@ function CreateQuestions() {
                 </div>
               </div>
             </div>
-            {isInputDisabled ? (
+            {isInputDisabled && (
               <>
                 <div className="flex flex-col mt-4 w-full md:gap-4  ">
                   <div className="flex flex-col">
@@ -248,8 +248,6 @@ function CreateQuestions() {
                   </button>
                 </div>
               </>
-            ) : (
-              <p>Contents will desplay after you add a template....</p>
             )}
           </form>
         </div>
