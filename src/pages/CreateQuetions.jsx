@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import Navbar from "../components/common/Navbar";
@@ -80,13 +80,6 @@ function CreateQuestions() {
 
     setIsInputDisabled(true);
   };
-  // const id = data?.id;
-  // const storeData = {
-  //   question: question,
-  //   marks: marks,
-  //   max_words: max_words,
-  //   template: getItem().getTemplateId,
-  // };
 
   const handleAddQuestion = (e) => {
     e.preventDefault();
