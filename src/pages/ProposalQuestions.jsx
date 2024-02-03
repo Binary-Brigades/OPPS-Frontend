@@ -81,8 +81,9 @@ function ProposalQuestions() {
                 </div>
               ) : (
                 <div>
-                    <EmptyLottie/>
-                    No questions Yet!!</div>
+                  <EmptyLottie />
+                  <p className="font-bold text-2xl"> No questions Yet!!</p>
+                </div>
               )}
             </ul>
           </div>

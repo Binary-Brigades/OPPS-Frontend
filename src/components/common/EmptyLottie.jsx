@@ -5,10 +5,7 @@ import lottie from "../../assets/Lottie/Animation - 1706963454691.json";
 function EmptyLottie() {
   return (
     <div>
-      <Lottie
-          className="h-[100%] w-full object-cover"
-          animationData={lottie}
-        />
+      <Lottie className="h-[100%] w-full object-cover" animationData={lottie} />
     </div>
   );
 }

@@ -5,13 +5,16 @@ import useFetch from "../../hooks/useFetch";
 import { useSidebar } from "../../hooks/useHandleSideBar";
 import useAuthToken from "../../hooks/useAuth";
 import { useParams, Link } from "react-router-dom";
+import EmptyLottie from "../components/common/EmptyLottie";
 
 function CreateSassProposal() {
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   const { proposalName } = useParams();
-  const Templates = useFetch(`https://oppsapi.onrender.com/api/v1/proposal/templates/${proposalName}/`);
+  const Templates = useFetch(
+    `https://oppsapi.onrender.com/api/v1/proposal/templates/${proposalName}/`
+  );
 
   return (
     <>
@@ -31,20 +34,33 @@ function CreateSassProposal() {
             <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20">
               Create Your {proposalName} Proposal
             </h5>
-            <p className="mt-4">Choose The Category for your proposal</p>
-            <ul className="mt-2 grid grid-cols-2 md:grid-cols-3 gap-3">
-              {Templates?.data?.map((template) => (
-                <li
-                  className="bg-[#f5f5f5] flex hover:cursor-pointer hover:bg-blue-500 hover:font-semibold transition-all duration-200 ease-in-out hover:text-white hover:scale-105 justify-center items-center p-3 rounded-md"
-                  key={template.id}
-                >
-                  {/* Pass template.id as a parameter in the Link */}
-                  <Link to={`/createproposal/${proposalName}/${template.id}`}>
-                    {template.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+            {Templates?.data?.length > 0 ? (
+              <>
+                <p className="mt-4">Choose The Category for your proposal</p>
+                <ul className="mt-2 grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {Templates?.data?.map((template) => (
+                    <li
+                      className="bg-[#f5f5f5] flex hover:cursor-pointer hover:bg-blue-500 hover:font-semibold transition-all duration-200 ease-in-out hover:text-white hover:scale-105 justify-center items-center p-3 rounded-md"
+                      key={template.id}
+                    >
+                      {/* Pass template.id as a parameter in the Link */}
+                      <Link
+                        to={`/createproposal/${proposalName}/${template.id}`}
+                      >
+                        {template?.title}
+                      </Link>
+                    </li>
+                  ))}{" "}
+                </ul>
+              </>
+            ) : (
+              <>
+                {" "}
+                <EmptyLottie />
+                <p className="font-bold text-2xl">No templates yet!</p>
+              </>
+            )}
           </div>
         </div>
       ) : (
