@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
 import useFetch from "../../hooks/useFetch";
 import { useSidebar } from "../../hooks/useHandleSideBar";
 import useAuthToken from "../../hooks/useAuth";
-import EmptyLottie from "../components/common/EmptyLottie";
+// import EmptyLottie from "../components/common/EmptyLottie";
 import { useParams } from "react-router-dom";
 
 function ProposalQuestions() {
@@ -12,17 +12,28 @@ function ProposalQuestions() {
   const { token, getUserDetail } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
   const { proposalName, templateId } = useParams();
+  
   const Questions = useFetch(
     `https://oppsapi.onrender.com/api/v1/proposal/get_questions/${templateId}/`
   );
-
   useEffect(() => {
     // Fetch data based on templateId
     Questions.refetch(
       `https://oppsapi.onrender.com/api/v1/proposal/get_questions/${templateId}/`
     );
-  }, [templateId]);
+    
 
+    
+  }, []);
+  if(Questions?.data?.questions.length > 0){
+    const  initialAnswersState = Questions.data.questions.map((question) => ({
+        id: question.id,
+        answer: '',
+      }));
+      console.log('from initial ans',initialAnswersState) 
+  } 
+  
+  
   return (
     <>
       {token !== null ? (
@@ -75,13 +86,12 @@ function ProposalQuestions() {
                     </li>
                   ))}
                   <div className="flex flex-row justify-between">
-                    <button>Submit</button>
-                    <button>Clear submission</button>
+                    <button className="bg-blue-500 font-semibold transition-all duration-300 ease-in-out text-white hover:bg-blue-400 text white px-3 py-2 rounded-md">Submit</button>
+                    <button className="text-blue-500 font-bold underline">Clear submission</button>
                   </div>
                 </div>
               ) : (
                 <div>
-                    <EmptyLottie/>
                     No questions Yet!!</div>
               )}
             </ul>
