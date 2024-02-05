@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -10,21 +10,21 @@ const useFetch = (url) => {
     try {
       setLoading(true);
       const response = await fetch(url, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Authorization': `Token ${token}`,
-          'Content-Type': 'application/json',
+          Authorization: `Token ${token}`,
+          "Content-Type": "application/json",
         },
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
 
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
-      setError('Error fetching data');
+      setError("Error fetching data");
     } finally {
       setLoading(false);
     }
@@ -34,7 +34,7 @@ const useFetch = (url) => {
     if (token) {
       fetchData();
     } else {
-      setError('No token found');
+      setError("No token found");
       setLoading(false);
     }
   }, [url, token]);
