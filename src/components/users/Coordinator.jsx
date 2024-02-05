@@ -23,7 +23,7 @@ function Coordinator() {
           </span>
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3   items-center gap-1 md:gap-2 ">
-          {data.map((item) => (
+          {data?.map((item) => (
             <Card State={item.name} Value={item.value} key={item.name} />
           ))}
         </div>
