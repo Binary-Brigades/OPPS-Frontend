@@ -37,12 +37,6 @@ function Proposals() {
                   <option value="hello">option 2</option>
                 </select>
               </div>
-              {/* <a
-                href="/createproposal"
-                className="px-3 py-1 bg-blue-500 rounded-sm text-white"
-              >
-                Create Proposal
-              </a> */}
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center w-full mt-12">
               <ProposalCard />
