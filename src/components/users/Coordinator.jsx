@@ -19,12 +19,12 @@ function Coordinator() {
         <p className="font-bold">
           Welcome back{" "}
           <span className="font-bold text-[20px]">
-            {getUserDetail.username}
+            {getUserDetail?.username}
           </span>
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3   items-center gap-1 md:gap-2 ">
           {data?.map((item) => (
-            <Card State={item.name} Value={item.value} key={item.name} />
+            <Card State={item?.name} Value={item?.value} key={item?.name} />
           ))}
         </div>
         <div className="mt-4">

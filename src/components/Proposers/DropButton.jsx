@@ -27,7 +27,7 @@ function DropButton() {
           {catList?.data?.map((item) => (
             <li key={item.name} className="hover:border-b transition-all duration-300 ease-in-out">
               {/* Use Link to redirect to the create proposal page with the proposal name as a parameter */}
-              <Link key={location.pathname} to={`/createproposal/${item.name}`}>
+              <Link key={location?.pathname} to={`/createproposal/${item?.name}`}>
                 {item.name}
               </Link>
             </li>

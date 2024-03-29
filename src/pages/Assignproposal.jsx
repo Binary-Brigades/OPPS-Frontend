@@ -48,16 +48,16 @@ function Assignproposal() {
               <span className="mr-2 font-bold">Reviewer</span>
             </div>
 
-            {data?.proposals.length > 0 ? (
-              data.proposals.map((item) => (
+            {data?.proposals?.length > 0 ? (
+              data?.proposals?.map((item) => (
                 <div
-                  key={item.id}
+                  key={item?.id}
                   className="grid grid-cols-3 md:grid-cols-4  gap-1 items-center w-full  md:left-[250px] mt-2 lg:pl-[100px]"
                 >
-                  {item.status == "pending" ? (
+                  {item?.status == "pending" ? (
                     <div>
                       <p className="text-sm">
-                        {item.status == "pending" ? item.name : null}
+                        {item?.status == "pending" ? item?.name : null}
                       </p>
                     </div>
                   ) : null}
@@ -65,33 +65,33 @@ function Assignproposal() {
                     {item.status == "pending" ? (
                       <div>
                         <p className="text-sm">
-                          {item.status == "pending" ? item.created_on : null}
+                          {item?.status == "pending" ? item?.created_on : null}
                         </p>
                       </div>
                     ) : null}
                   </div>
-                  {item.status == "pending" ? (
+                  {item?.status == "pending" ? (
                     <div>
                       <p
                         className={`${
-                          item.status == "pending" ? "text-yellow-500" : ""
+                          item?.status == "pending" ? "text-yellow-500" : ""
                         }`}
                       >
-                        {item.status == "pending" ? "Pending" : null}
+                        {item?.status == "pending" ? "Pending" : null}
                       </p>
                     </div>
                   ) : null}
 
-                  {item.status == "pending" ? (
+                  {item?.status == "pending" ? (
                     <div className="gap-2 flex-col flex md:flex-row md:gap-6">
                       <select
                         className="rounded-sm px-3 md:px-4 outline-none h-8 border border-gray-500 bg-gray-200"
                         // value={selectedOption}
                         onChange={handleSelectChange}
                       >
-                        {data?.reviewers.map((option) => (
-                          <option value={option.pk} key={option.pk}>
-                            {option.username}
+                        {data?.reviewers?.map((option) => (
+                          <option value={option?.pk} key={option?.pk}>
+                            {option?.username}
                           </option>
                         ))}
                       </select>
