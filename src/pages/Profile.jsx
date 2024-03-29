@@ -118,14 +118,6 @@ function Profile() {
                         placeholder={getUserDetail.email}
                       ></input>
                     </div>
-                    {/* <div className="divinput mt-2 mb-2">
-                <MdLock className="w-5 h-5 font-bold text-black" />
-                <input
-                  className="input"
-                  type="password"
-                  placeholder="Password..."
-                ></input>
-              </div> */}
                   </div>
                   <input
                     className="btn w-full  rounded-lg uppercase mt-8"

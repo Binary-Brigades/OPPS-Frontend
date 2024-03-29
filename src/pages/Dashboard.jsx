@@ -43,7 +43,7 @@ function UsersDashboard() {
               Dashboard
             </h5>
             {selectedItem === "admin" && <Admin />}
-            {selectedItem === "student" && <Proposer />}
+            {selectedItem === "proposer" && <Proposer />}
             {selectedItem === "coordinator" && <Coordinator />}
             {selectedItem === "reviewer" && <Reviewer />}
           </div>
