@@ -63,7 +63,7 @@ function Sidebar({ open, getUserDetail }) {
             <a href="/proposals">Proposals</a>
           </div>
 
-          {getUserDetail?.role == "student" && (
+          {getUserDetail?.role == "proposer" && (
             <div className="flex items-center gap-2">
               <DropButton />
             </div>

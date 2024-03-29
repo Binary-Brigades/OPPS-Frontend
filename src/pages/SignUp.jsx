@@ -27,16 +27,16 @@ function SignUp() {
     try {
       // Perform signup logic here (an API call, for example)
       const response = await fetch(
-        "https://oops-n5cn.onrender.com/api/v1/account/register/ ",
+        "https://oppsapi.onrender.com/api/v1/account/register/",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, username, password1, password2 }),
+          body: JSON.stringify({username,email, password1, password2 }),
         }
       );
-
+      // console.log(await response.json());
       if (response.status === 204) {
         toast.success("Account created successfully", { id: notification });
         return;
@@ -49,7 +49,7 @@ function SignUp() {
         window.location.href = "/login";
       } else if (response.status === 400) {
         // Handle errors (e.g., display an error message to the user)
-        toast.error("User exists...", {
+        toast.error(response.status, {
           id: notification,
         });
       } else {
