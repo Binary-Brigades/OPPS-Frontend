@@ -19,12 +19,12 @@ function Dashboard() {
       <div className="flex w-full md:w-[80%] flex-col">
         <p className="font-bold mb-5">
           Welcome back{" "}
-            {getUserDetail.username}
+            {getUserDetail?.username}
           
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3   items-center gap-2 md:gap-4 ">
           {data.map((item) => (
-            <Card State={item.name} Value={item.value} key={item.name} />
+            <Card State={item?.name} Value={item?.value} key={item?.name} />
           ))}
         </div>
         <div className="mt-4">
