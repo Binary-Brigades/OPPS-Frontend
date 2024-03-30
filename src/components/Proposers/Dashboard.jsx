@@ -23,7 +23,7 @@ function Dashboard() {
           
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3   items-center gap-2 md:gap-4 ">
-          {data.map((item) => (
+          {data?.map((item) => (
             <Card State={item?.name} Value={item?.value} key={item?.name} />
           ))}
         </div>
