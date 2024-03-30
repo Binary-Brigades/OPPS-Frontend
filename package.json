@@ -17,7 +17,8 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.20.1",
-    "recharts": "^2.10.4"
+    "recharts": "^2.10.4",
+    "react-toastify"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
