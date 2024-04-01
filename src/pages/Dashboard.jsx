@@ -42,7 +42,7 @@ function UsersDashboard() {
             <h5 className="text-blue-500 text-xl font-bold uppercase  md:left-[250px] mt-20 lg:pl-[100px]">
               Dashboard
             </h5>
-            {selectedItem === "admin" && <Admin />}
+            {/* {selectedItem === "admin" && <Admin />} */}
             {selectedItem === "proposer" && <Proposer />}
             {selectedItem === "coordinator" && <Coordinator />}
             {selectedItem === "reviewer" && <Reviewer />}

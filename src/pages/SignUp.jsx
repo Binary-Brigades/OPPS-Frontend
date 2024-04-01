@@ -33,10 +33,11 @@ function SignUp() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({username,email, password1, password2 }),
+          body: JSON.stringify({ username, email, password1, password2 }),
         }
       );
-      // console.log(await response.json());
+      const data = await response.json();
+      console.log(data);
       if (response.status === 204) {
         toast.success("Account created successfully", { id: notification });
         return;
@@ -49,15 +50,16 @@ function SignUp() {
         window.location.href = "/login";
       } else if (response.status === 400) {
         // Handle errors (e.g., display an error message to the user)
-        toast.error(response.status, {
+        toast.error("Something went wrong, invalid data...", {
           id: notification,
         });
       } else {
         // Handle other status codes as needed
-        toast.error("Something went wrong", {
+        toast.error("Something went wrong...", {
           id: notification,
         });
       }
+      // console.log(await response.json());
     } catch (error) {
       // Handle signup failure (show error message, etc.)
       console.error("Signup failed:", error);
@@ -95,6 +97,7 @@ function SignUp() {
                   className="input w-full"
                   type="text"
                   placeholder="username"
+                  required
                   onChange={(e) => setUsername(e.target.value)}
                 ></input>
               </div>
@@ -105,7 +108,8 @@ function SignUp() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="input"
-                    type="text"
+                    type="email"
+                    required
                     placeholder="Email"
                   ></input>
                 </div>
@@ -116,6 +120,7 @@ function SignUp() {
                     onChange={(e) => setPassword1(e.target.value)}
                     className="input"
                     type="password"
+                    required
                     placeholder="password"
                   ></input>
                 </div>
@@ -126,6 +131,7 @@ function SignUp() {
                     onChange={(e) => setPassword2(e.target.value)}
                     className="input"
                     type="password"
+                    required
                     placeholder="Confirm Password"
                   ></input>
                 </div>
