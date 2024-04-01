@@ -11,6 +11,7 @@ import ProposalPage from "./pages/ProposalPage";
 import CreateQuetions from "./pages/CreateQuetions";
 import ProposalQuestions from "./pages/ProposalQuestions";
 import Assignproposal from "./pages/Assignproposal";
+import ProposalsReview from "./pages/ProposalsReview";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         {/* <Route path="/dasboard" element={<Profile/> } /> */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/proposals/review/:id" element={<ProposalsReview />} />
         <Route path="/proposals" element={<Proposals />} />
         <Route path="/settings" element={<Settings />} />
         <Route

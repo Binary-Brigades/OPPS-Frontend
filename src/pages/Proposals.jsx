@@ -5,10 +5,15 @@ import Sidebar from "../components/common/Sidebar";
 import ProposalCard from "../components/common/ProposalCard";
 import useAuthToken from "../../hooks/useAuth";
 import { useSidebar } from "../../hooks/useHandleSideBar";
+import useFetch from "../../hooks/useFetch";
 function Proposals() {
   const { getItem } = useAuthToken();
   const { token, getUserDetail } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
+  const { data, loading, error } = useFetch(
+    "https://oppsapi.onrender.com/api/v1/proposal/assignments/"
+  );
+  console.log(data);
   return (
     <>
       {token !== null ? (
@@ -38,14 +43,11 @@ function Proposals() {
                 </select>
               </div>
             </div>
+            {loading && <p>Loading...</p>}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center w-full mt-12">
-              <ProposalCard />
-              <ProposalCard />
-              <ProposalCard />
-              <ProposalCard />
-              <ProposalCard />
-              <ProposalCard />
-              <ProposalCard />
+              {data?.map((proposal, index) => (
+                <ProposalCard key={index} proposal={proposal} />
+              ))}
             </div>
           </div>
         </div>

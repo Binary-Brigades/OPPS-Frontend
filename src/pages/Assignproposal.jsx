@@ -12,16 +12,52 @@ function Assignproposal() {
   const { getItem, removeItem } = useAuthToken();
   const { token, getUserDetail, getTemplateId } = getItem();
   const { open, handleSideBar, handleSidebarItemClick } = useSidebar();
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
+  const [itemId, setItemId] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
   const { data, loading, error } = useFetch(
     "https://oppsapi.onrender.com/api/v1/proposal/reviewers/"
   );
 
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
+  const handleAssignproposals = async (id) => {
+    if (!selectedOption) {
+      toast.error("Please select a reviewer");
+      return;
+    }
+    // console.log(id);
+    // console.log(selectedOption);
+    try {
+      const response = await fetch(
+        `https://oppsapi.onrender.com/api/v1/proposal/assign1/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify({
+            proposal: id,
+            reviewer: selectedOption,
+          }),
+        }
+      );
+      if (response.status === 200) {
+        toast.success("Proposal assigned successfully");
+        setIsInputDisabled(true);
+      }
+      setSelectedOption("");
+      if (response.status === 400) {
+        toast.error("Error assigning proposal");
+      }
+      const data = await response.json();
+      setItemId(data?.proposal);
+      console.log(data?.proposal);
+    } catch (error) {
+      toast.error("Error assigning proposal");
+      console.log(error);
+    }
   };
-  const [isInputDisabled, setIsInputDisabled] = useState(false);
-
+  console.log(data, error, loading);
   return (
     <>
       <Toaster />
@@ -43,8 +79,8 @@ function Assignproposal() {
             </h5>
             <div className="grid grid-cols-3 md:grid-cols-4  gap-1 items-center w-full  md:left-[250px] mt-2 lg:pl-[100px]">
               <span className="mr-2 font-bold">Title</span>
-              <span className="mr-2 font-bold hidden md:flex">Date</span>
-              <span className="mr-2 font-bold">Status</span>
+              <span className="mr-2 font-bold flex">Date</span>
+              {/* <span className="mr-2 font-bold">Status</span> */}
               <span className="mr-2 font-bold">Reviewer</span>
             </div>
 
@@ -54,48 +90,63 @@ function Assignproposal() {
                   key={item?.id}
                   className="grid grid-cols-3 md:grid-cols-4  gap-1 items-center w-full  md:left-[250px] mt-2 lg:pl-[100px]"
                 >
-                  {item?.status == "pending" ? (
+                  {item?.assigned == false ? (
                     <div>
                       <p className="text-sm">
-                        {item?.status == "pending" ? item?.name : null}
+                        {item?.assigned == false ? item?.name : null}
                       </p>
                     </div>
                   ) : null}
-                  <div className="hidden md:flex">
-                    {item.status == "pending" ? (
+                  <div className="flex">
+                    {item?.assigned == false ? (
                       <div>
                         <p className="text-sm">
-                          {item?.status == "pending" ? item?.created_on : null}
+                          {item?.assigned == false ? item?.created_on : null}
                         </p>
                       </div>
                     ) : null}
                   </div>
-                  {item?.status == "pending" ? (
+                  {/* {item?.assigned == false ? (
                     <div>
                       <p
                         className={`${
-                          item?.status == "pending" ? "text-yellow-500" : ""
+                          item?.assigned == false ? "text-yellow-500" : ""
                         }`}
                       >
-                        {item?.status == "pending" ? "Pending" : null}
+                        {item?.assigned == false ? "Not assigned" : null}
                       </p>
                     </div>
-                  ) : null}
+                  ) : null} */}
 
-                  {item?.status == "pending" ? (
+                  {item?.assigned == false ? (
                     <div className="gap-2 flex-col flex md:flex-row md:gap-6">
                       <select
-                        className="rounded-sm px-3 md:px-4 outline-none h-8 border border-gray-500 bg-gray-200"
+                        className="rounded-sm px-3 md:px-4 outline-none h-8 border border-gray-500 bg-gray-200 z-[999]"
                         // value={selectedOption}
-                        onChange={handleSelectChange}
+                        onChange={(event) =>
+                          setSelectedOption(event.target.value)
+                        }
                       >
+                        <option value="">Select Reviewer</option>
                         {data?.reviewers?.map((option) => (
                           <option value={option?.pk} key={option?.pk}>
                             {option?.username}
                           </option>
                         ))}
                       </select>
-                      <button className="bg-blue-500 rounded-sm px-3 md:px-4 outline-none h-8 border border-gray-500">
+
+                      <button
+                        disabled={item.id == itemId && isInputDisabled}
+                        className={`bg-blue-500 rounded-sm px-3 md:px-4 outline-none h-8 border border-gray-500 ${
+                          item.id == itemId &&
+                          isInputDisabled &&
+                          "cursor-not-allowed"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleAssignproposals(item?.id);
+                        }}
+                      >
                         Assign
                       </button>
                     </div>

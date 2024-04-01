@@ -24,7 +24,16 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const notification = toast.loading("authenticating...");
-
+    if (username === "" || password === "") {
+      return toast.error("Please fill in all fields", {
+        id: notification,
+      });
+    }
+    if (username.length < 4) {
+      return toast.error("username must be at least 4 characters", {
+        id: notification,
+      });
+    }
     try {
       const response = await fetch(
         "https://oppsapi.onrender.com/api/v1/account/login/",
@@ -62,7 +71,7 @@ function Login() {
         localStorage.setItem("userDetails", userDataToString);
         window.location.href = "/";
       } else {
-        toast.error(data.message, {
+        toast.error(data.non_field_errors, {
           id: notification,
         });
       }
@@ -108,6 +117,7 @@ function Login() {
                       onChange={(e) => setUserName(e.target.value)}
                       className="input"
                       type="text"
+                      required
                       placeholder="username..."
                     ></input>
                   </div>
@@ -118,6 +128,7 @@ function Login() {
                       onChange={(e) => setPassword(e.target.value)}
                       className="input"
                       type="password"
+                      required
                       placeholder="password..."
                     ></input>
                   </div>
